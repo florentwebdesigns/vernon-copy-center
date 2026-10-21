@@ -36,7 +36,7 @@ The existing site showed no logo, photos, reviews or extra towns. Real work phot
 
 ## Placeholders and things to confirm before launch
 
-- **Reviews**: all three are labeled samples. Replace with real reviews (with permission) or remove the section.
+- **Reviews**: 12 real Google reviews supplied by the client (customer text only, names shortened to first name + last initial; reviews cut off on Google end with an ellipsis).
 - **Service illustrations**: six generated line drawings (paper stack with CMYK dots, original and copy, bezier artboard, notarized page with seal, shredder strips, document folder). Decorative, not photos of the shop.
 - **Showcase mockups**: CSS-built illustrations ("Spring Craft Fair" flyer, "Your Business" card, envelope), labeled as not actual client work.
 - **Logo**: the registration-target emblem and wordmark are a proposed concept. Swap in the real logo if one exists.
