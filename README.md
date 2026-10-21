@@ -44,7 +44,7 @@ The existing site showed no logo, photos, reviews or extra towns, so none are us
 - **Notary fee and hours** come from the current site; confirm they're still current.
 - **"Open now / Closed now" badge** is computed from the hours above in New York time and doesn't know about holidays.
 - **Process step 3** ("pick it up in Vernon") assumes in-store pickup; confirm.
-- The demo bar at the top of the page should be removed for production.
+- The demo bar has been removed; SAMPLE tags still mark placeholder sections.
 
 ## The quote form
 

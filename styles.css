@@ -341,7 +341,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- hero ---------- */
 .hero {
-  position: relative; min-height: calc(100svh - var(--header-h) - 36px); min-height: max(640px, calc(100svh - var(--header-h) - 36px));
+  position: relative; min-height: calc(100svh - var(--header-h)); min-height: max(640px, calc(100svh - var(--header-h)));
   display: grid; place-items: center; padding-block: 48px 120px; isolation: isolate;
 }
 .hero__stage { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
