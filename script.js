@@ -10,7 +10,7 @@
 
   /* Google Sheets booking log (docs/booking-log.gs). Paste the Apps Script web app URL here;
      leave it empty and the form stays in demo mode (prepares a message, sends nothing). */
-  var QUOTE_LOG = "";
+  var QUOTE_LOG = "https://script.google.com/macros/s/AKfycbyEXQfUXiQQXQ4BP1rCP4rMtA2OzbunaOkosfqRA-XrKKXTPz6hyXNjsTJAiPZ2PGz4/exec";
 
   /* ---------- word-by-word headline split (aria-label keeps the full text) ---------- */
   $$(".split").forEach(function (el) {
