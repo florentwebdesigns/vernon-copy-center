@@ -14,10 +14,10 @@ assets/favicon.svg
 
 ## Design direction
 
-A dark press room in warm smoke, using the palette from the client's reference screenshot. Brown-black backgrounds, warm ivory type, a copper-to-amber accent used as light (glows, gradient words, the progress bar). Print-production details carry the identity: registration targets, crop marks, a halftone loupe in the hero, CMYK dots, paper mockups, a dashed notary "stamp".
+A dark press room in live ink smoke, using the royal blue and hot pink from the shop's business card. Deep navy backgrounds, cool white type, a blue-to-violet-to-pink gradient accent used as light (glows, gradient words, the progress bar). Print-production details carry the identity: registration targets, crop marks, a halftone loupe in the hero, CMYK dots, paper mockups, a dashed notary "stamp".
 
 - Type: Archivo (variable, width axis) for display and body, light weights and expanded widths for headlines; IBM Plex Mono for slug-line labels.
-- Tokens: `--void #0c0805`, `--base #140e09`, `--base-2 #21170e`, `--accent #b9773d`, `--accent-bright #e3b27a`, `--text #f3e9d6`, `--text-muted #cfc9bc`, `--text-faint #8f8b82` (decorative only).
+- Tokens: `--void #030817`, `--base #061130`, `--base-2 #0c1f52`, `--accent #f0168c`, `--accent-bright #ff5cb4`, `--text #f2f5ff`, `--text-muted #c4cde6`, `--text-faint #8590ad` (decorative only). Buttons use `--grad-btn` (royal blue #0b47b0 to pink #d4107c) with white text.
 - Contrast: the shader output is soft-capped at 0.38 per channel; with the warm palette the brightest background point is roughly relative luminance 0.08. Body ivory is about 10:1 against that and muted text about 4.8:1 (computed from the cap, not measured on screen).
 
 ## Motion features
@@ -26,7 +26,7 @@ WebGL domain-warped fbm smoke with a sweeping light streak, drifting flare, vign
 
 ## Verified from copycentervernon.com (checked 2026-10-15)
 
-- Address, phone, email (from the brief); fax 973-764-5656
+- Address, phone, email; fax 973-764-5656. ZIP is 07462, per the shop's business card (the original brief said 07422)
 - Hours: Mon 9–5, Tue 10–6, Wed–Fri 9–5. No weekend hours listed (shown as "Not listed")
 - Notary: $5 per signature, no appointment necessary; don't sign before you're in front of the notary; bring witnesses over 18
 - Document shredding

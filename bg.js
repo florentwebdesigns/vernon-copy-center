@@ -51,9 +51,9 @@
   function hex(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; }
 
   var PALETTES = {
-    page:  { base: "#0e0905", mid: "#6a4322", acc: "#c88a4e", acc2: "#d9a466", flare: 1.2 },
-    stage: { base: "#0c0805", mid: "#3b2511", acc: "#b9773d", acc2: "#b9773d", flare: 0.7 },
-    cta:   { base: "#0b0704", mid: "#45301a", acc: "#d29a5a", acc2: "#b0703a", flare: 0.9 }
+    page:  { base: "#040a1f", mid: "#1450c8", acc: "#e8178a", acc2: "#3d7dff", flare: 1.2 },
+    stage: { base: "#030817", mid: "#0a2c74", acc: "#f0168c", acc2: "#f0168c", flare: 0.7 },
+    cta:   { base: "#030816", mid: "#123382", acc: "#ff3fa4", acc2: "#4d8dff", flare: 0.9 }
   };
 
   var mouse = { x: 0, y: 0, tx: 0, ty: 0 };
