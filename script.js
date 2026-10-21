@@ -8,6 +8,10 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
+  /* Google Sheets booking log (docs/booking-log.gs). Paste the Apps Script web app URL here;
+     leave it empty and the form stays in demo mode (prepares a message, sends nothing). */
+  var QUOTE_LOG = "";
+
   /* ---------- word-by-word headline split (aria-label keeps the full text) ---------- */
   $$(".split").forEach(function (el) {
     var i = 0;
@@ -201,9 +205,15 @@
     a.addEventListener("click", function () { if (serviceSelect) serviceSelect.value = a.getAttribute("data-service"); });
   });
 
-  /* ---------- quote form (demo: validates and prepares a message; nothing is sent) ---------- */
+  /* ---------- quote form: validates, logs to the booking sheet when QUOTE_LOG is set ---------- */
   var form = $("#quote-form");
   if (form) {
+    if (QUOTE_LOG) {
+      var notice = $(".form-card__notice"); if (notice) notice.hidden = true;
+      form.querySelector(".btn--submit .btn__label").textContent = "Send my request";
+      $("#form-done h3").textContent = "Thanks, your request is in";
+      $("#form-done h3 + p").innerHTML = "We'll get back to you by email or phone. Here's a copy of what you sent. In a hurry? Call <strong>973-764-5655</strong>.";
+    }
     var summary = $("#error-summary");
     var done = $("#form-done");
     var msgEl = $("#form-msg");
@@ -252,7 +262,16 @@
       summary.hidden = true;
       var btn = form.querySelector(".btn--submit");
       btn.classList.add("is-loading");
-      btn.querySelector(".btn__label").textContent = "Preparing…";
+      btn.querySelector(".btn__label").textContent = QUOTE_LOG ? "Sending…" : "Preparing…";
+      if (QUOTE_LOG) {
+        try {
+          fetch(QUOTE_LOG, { method: "POST", mode: "no-cors", keepalive: true, body: new URLSearchParams({
+            name: fields.name.el.value.trim(), email: fields.email.el.value.trim(), phone: fields.phone.el.value.trim(),
+            service: fields.service.el.value, deadline: fields.deadline.el.value, details: fields.details.el.value.trim(),
+            website: (form.elements.website && form.elements.website.value) || "", page: location.href
+          }) }).catch(function () {});
+        } catch (err) { /* the copy and email fallback below still works */ }
+      }
       setTimeout(function () {
         var v = function (k) { return fields[k].el.value.trim(); };
         var lines = [
@@ -274,7 +293,7 @@
         done.hidden = false;
         done.focus();
         btn.classList.remove("is-loading");
-        btn.querySelector(".btn__label").textContent = "Prepare my request";
+        btn.querySelector(".btn__label").textContent = QUOTE_LOG ? "Send my request" : "Prepare my request";
       }, reduce ? 0 : 700);
     });
 

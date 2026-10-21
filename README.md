@@ -46,11 +46,11 @@ The existing site showed no logo, photos, reviews or extra towns, so none are us
 - **Process step 3** ("pick it up in Vernon") assumes in-store pickup; confirm.
 - The demo bar has been removed; SAMPLE tags still mark placeholder sections.
 
-## The quote form
+## The quote form and booking sheet
 
-Not connected to anything. On submit it validates (on blur and on submit, with an error summary that focuses the first invalid field), shows a loading state, then shows a success panel that says plainly nothing was sent, with a ready-made message to copy, an "Open in email" `mailto:` link, and the phone number. There is no file upload.
+The form validates (on blur and on submit, with an error summary), then shows a success panel with a copy of the message, an "Open in email" link and the phone number. A hidden honeypot field (`website`) catches bots.
 
-To make it live, point the form at a real handler (for example Formspree, Basin, Netlify Forms, or a small serverless function that emails copycenter@warwick.net), replace the `setTimeout` block in `script.js` with a `fetch` POST, and handle the error state. Add spam protection (honeypot or Turnstile).
+Booking log: `docs/booking-log.gs` is a Google Apps Script. Bound to a Google Sheet, it saves every request to a "Requests" tab (status dropdown, deadline highlighting) and builds a "Dashboard" tab (totals, by service, by month, by weekday, job status, upcoming deadlines, latest requests, charts). Setup steps are at the top of the file. Paste the web app URL into `QUOTE_LOG` at the top of `script.js`; while it's empty the form stays in demo mode and sends nothing. Optional email alerts: set `NOTIFY_EMAIL` in the script.
 
 ## What works
 
