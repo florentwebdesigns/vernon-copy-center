@@ -13,6 +13,14 @@
  * (that keeps the same URL).
  */
 var NOTIFY_EMAIL = "copycenter@warwick.net";   // Katie gets an email for every booking ("" = off)
+
+/* Text message alert for every booking. Two ways, use one:
+ *  A) Free: carrier email-to-text. Put her CELL number + carrier gateway here, e.g.
+ *     Verizon "9735551234@vtext.com", T-Mobile "9735551234@tmomail.net",
+ *     US Cellular "9735551234@email.uscc.net". (AT&T ended its free gateway in 2025, use B.)
+ *  B) Any carrier: Twilio. In Apps Script, Project Settings > Script Properties, add
+ *     TWILIO_SID, TWILIO_TOKEN, TWILIO_FROM (+1...) and TWILIO_TO (+1 her cell). */
+var SMS_GATEWAY = "";
 var CALLS = "Calls";
 var BOOKINGS = "Bookings";
 var CALL_HEADERS = ["Tapped Call", "Device", "Page"];
@@ -30,7 +38,8 @@ function doPost(e) {
       sheet_(BOOKINGS, BOOKING_HEADERS).appendRow([new Date(), clean_(p.name), clean_(p.email),
         clean_(p.phone), clean_(p.service), clean_(p.deadline), clean_(p.details),
         clean_(p.device), clean_(p.page)]);
-      if (NOTIFY_EMAIL) notify_(p);
+      try { if (NOTIFY_EMAIL) notify_(p); } catch (err) { console.error(err); }
+      text_(p);
     }
   } finally {
     lock.releaseLock();
@@ -53,6 +62,25 @@ function notify_(p) {
     body: lines.join("\n"), name: "Vernon Copy Center Website" };
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email || "")) msg.replyTo = p.email;
   MailApp.sendEmail(msg);
+}
+
+function text_(p) {
+  var sms = "New quote: " + (p.name || "Customer") + ", " + (p.service || "") +
+    (p.phone ? ", " + p.phone : "") + (p.email ? ", " + p.email : "") +
+    (p.deadline ? ", by " + p.deadline : "") + ". " + String(p.details || "").slice(0, 60);
+  sms = sms.slice(0, 300);
+  try {
+    if (SMS_GATEWAY) MailApp.sendEmail(SMS_GATEWAY, "", sms);
+    var props = PropertiesService.getScriptProperties().getProperties();
+    if (props.TWILIO_SID && props.TWILIO_TOKEN && props.TWILIO_FROM && props.TWILIO_TO) {
+      UrlFetchApp.fetch("https://api.twilio.com/2010-04-01/Accounts/" + props.TWILIO_SID + "/Messages.json", {
+        method: "post",
+        payload: { To: props.TWILIO_TO, From: props.TWILIO_FROM, Body: sms },
+        headers: { Authorization: "Basic " + Utilities.base64Encode(props.TWILIO_SID + ":" + props.TWILIO_TOKEN) },
+        muteHttpExceptions: true
+      });
+    }
+  } catch (err) { console.error(err); }  // a failed text never blocks the booking row
 }
 
 function doGet() {
