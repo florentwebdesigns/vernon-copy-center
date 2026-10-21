@@ -33,7 +33,7 @@
     "  col += acc * pow(smoothstep(0.55, 0.95, r.y), 3.0) * 0.18;",
     /* diagonal light streak */
     "  float d = dot(p, normalize(vec2(1.0, -0.62))) + sin(uTime * 0.045) * 0.9;",
-    "  col += acc * 0.10 * exp(-pow(d * 2.6, 2.0)) + vec3(0.85, 0.93, 1.0) * 0.035 * exp(-pow(d * 9.0, 2.0));",
+    "  col += acc * 0.16 * exp(-pow(d * 2.6, 2.0)) + vec3(0.85, 0.93, 1.0) * 0.035 * exp(-pow(d * 9.0, 2.0));",
     /* drifting lens flare */
     "  vec2 fp = vec2(0.55 * sin(uTime * 0.027), 0.22 + 0.14 * cos(uTime * 0.035)) - uMouse * 0.08;",
     "  float fl = 0.012 / (length(p - fp) + 0.03);",
@@ -41,7 +41,7 @@
     /* vignette, dim, soft ceiling so text contrast holds at the brightest point */
     "  col *= 1.0 - 0.6 * pow(length(uv - 0.5) * 1.3, 2.0);",
     "  col *= uDim;",
-    "  col = 0.38 * (1.0 - exp(-col / 0.38));",
+    "  col = 0.46 * (1.0 - exp(-col / 0.46));",
     /* animated film grain */
     "  col += (hash(gl_FragCoord.xy + fract(uTime * 0.37) * 311.0) - 0.5) * 0.03;",
     "  gl_FragColor = vec4(max(col, 0.0), 1.0);",
@@ -51,7 +51,7 @@
   function hex(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; }
 
   var PALETTES = {
-    page:  { base: "#0b0704", mid: "#4a2f17", acc: "#b27843", acc2: "#d09a5c", flare: 1.0 },
+    page:  { base: "#0e0905", mid: "#6a4322", acc: "#c88a4e", acc2: "#d9a466", flare: 1.2 },
     stage: { base: "#0c0805", mid: "#3b2511", acc: "#b9773d", acc2: "#b9773d", flare: 0.7 },
     cta:   { base: "#0b0704", mid: "#45301a", acc: "#d29a5a", acc2: "#b0703a", flare: 0.9 }
   };
@@ -124,7 +124,7 @@
     var heroH = window.innerHeight;
     var y = window.scrollY || 0;
     var k = Math.min(1, y / (heroH * 0.9));
-    return 1.0 - 0.45 * k;
+    return 1.0 - 0.3 * k;
   }
 
   var shaders = [];

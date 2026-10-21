@@ -323,8 +323,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: grid; place-items: center; padding-block: 48px 120px; isolation: isolate;
 }
 .hero__stage { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-/* soft shade behind the headline for legibility (no visible edge) */
-.hero__stage::before { content: ""; position: absolute; left: 50%; top: 48%; width: min(120vw, 1100px); aspect-ratio: 1.6; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(12, 8, 5, .5), transparent); }
 .crop { position: absolute; width: 28px; height: 28px; border-color: var(--line-strong); border-style: solid; border-width: 0; }
 .hero .crop { opacity: .8; }
 .crop--tl { left: 24px; top: 24px; border-left-width: 1px; border-top-width: 1px; }
@@ -347,6 +345,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-weight: 220; font-variation-settings: "wdth" 115; letter-spacing: -.045em; margin-bottom: 30px;
 }
 .hero__title .shimmer { font-weight: 300; }
+.hero__title, .hero__lede, .hero__eyebrow { text-shadow: 0 2px 24px rgba(12, 8, 5, .65); }
+main p, main h2, main h3, main dd { text-shadow: 0 1px 14px rgba(12, 8, 5, .5); }
 .hero__lede { max-width: 36em; font-size: clamp(1rem, 1.4vw, 1.1875rem); color: var(--text-muted); margin-bottom: 38px; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 .js .hero__eyebrow, .js .hero__lede, .js .hero__ctas { animation: rise 1s var(--ease) both; }
