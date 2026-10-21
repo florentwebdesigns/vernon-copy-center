@@ -10,7 +10,7 @@
 
   /* Google Sheets call + booking analytics (docs/booking-log.gs). Phone taps go to the Calls tab,
      quote requests to the Bookings tab. Empty = nothing is logged and the form stays in demo mode. */
-  var QUOTE_LOG = "https://script.google.com/macros/s/AKfycbyEXQfUXiQQXQ4BP1rCP4rMtA2OzbunaOkosfqRA-XrKKXTPz6hyXNjsTJAiPZ2PGz4/exec";
+  var QUOTE_LOG = "https://script.google.com/macros/s/AKfycby82RgCnOMfsX2LL82Hf6eeH4G0S6q7ONM7lmeG9J1OarbiKyJNU0fvALhjSsY-GsJD/exec";
 
   /* ---------- word-by-word headline split (aria-label keeps the full text) ---------- */
   $$(".split").forEach(function (el) {
