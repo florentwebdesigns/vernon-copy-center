@@ -1,6 +1,6 @@
 # The Vernon Copy Center — demo preview
 
-Static HTML + CSS + vanilla JS. No build step and no dependencies. Open `index.html` in a browser, or serve the folder with any static server (`python3 -m http.server`). Not deployed anywhere.
+Static HTML + CSS + vanilla JS. No build step and no dependencies. Open `index.html` in a browser, or serve the folder with any static server (`python3 -m http.server`). Deployed at https://vernoncopycenter.com (pushes to main auto-deploy on Vercel).
 
 ```
 index.html          page markup, inline SVG icons, LocalBusiness structured data (verified facts only)
@@ -14,15 +14,15 @@ assets/favicon.svg
 
 ## Design direction
 
-A dark press room in live ink smoke, using the royal blue and hot pink from the shop's business card. Deep navy backgrounds, cool white type, a blue-to-violet-to-pink gradient accent used as light (glows, gradient words, the progress bar). Print-production details carry the identity: registration targets, crop marks, a halftone loupe in the hero, CMYK dots, paper mockups, a dashed notary "stamp".
+Styled after the shop's business card: a clean white sheet, royal blue bands (demo bar, showcase stage, CTA panel, footer with a card-style pink swoosh), hot pink accents and blue-to-pink gradients. Two live pink swoosh lines are drawn across the page and breathe slowly.
 
-- Type: Archivo (variable, width axis) for display and body, light weights and expanded widths for headlines; IBM Plex Mono for slug-line labels.
-- Tokens: `--void #030817`, `--base #061130`, `--base-2 #0c1f52`, `--accent #f0168c`, `--accent-bright #ff5cb4`, `--text #f2f5ff`, `--text-muted #c4cde6`, `--text-faint #8590ad` (decorative only). Buttons use `--grad-btn` (royal blue #0b47b0 to pink #d4107c) with white text.
-- Contrast: the shader output is soft-capped at 0.38 per channel; with the warm palette the brightest background point is roughly relative luminance 0.08. Body ivory is about 10:1 against that and muted text about 4.8:1 (computed from the cap, not measured on screen).
+- Type: Poppins (bold geometric, like the card) for display and body; Yellowtail for the script "Copy Center" wordmark; IBM Plex Mono for small labels.
+- Tokens: `--blue #0b47b0`, `--blue-deep #08368a`, `--pink #f0168c`, `--text #0b1a3d`, `--text-muted #46536f`, `--accent-bright #d10b78` (pink dark enough for text on white). `.on-blue` flips the tokens to white text inside the blue bands.
+- Wordmark: recreated from the business card in a web font, not the original artwork. Swap in the real logo file for launch.
 
 ## Motion features
 
-WebGL domain-warped fbm smoke with a sweeping light streak, drifting flare, vignette and grain; half resolution, DPR capped at 1.5, pauses when the tab is hidden and panel canvases pause off screen; CSS gradient fallback without WebGL. Hero loupe fades in from blur and breathes; emblem draws itself; headline words rise from a blur (55 ms stagger, `aria-label` keeps the full text); hero drifts and fades on scroll. Scroll reveals (fade, rise, unblur, 70 ms sibling stagger, once). Accent dividers wipe in. Service marquee (outline and shimmer, pauses on hover). Mockup tilt toward the cursor plus idle float. Cursor glow and magnetic buttons on fine pointers. 2 px scroll progress bar. SVG feTurbulence grain overlay. Conic light travelling around glass borders on hover. `prefers-reduced-motion` turns all of it off and renders the shader as a single still frame.
+Two pink swoosh lines (SVG beziers) draw in on load, breathe slowly, drift with scroll and soften behind reading content. The showcase and CTA panels run a royal blue WebGL ink shader (half resolution, DPR capped at 1.5, paused off screen). emblem draws itself; headline words rise from a blur (55 ms stagger, `aria-label` keeps the full text); hero drifts and fades on scroll. Scroll reveals (fade, rise, unblur, 70 ms sibling stagger, once). Accent dividers wipe in. Service marquee (outline and shimmer, pauses on hover). Mockup tilt toward the cursor plus idle float. Cursor glow and magnetic buttons on fine pointers. 2 px scroll progress bar. SVG feTurbulence grain overlay. Conic light travelling around glass borders on hover. `prefers-reduced-motion` turns all of it off and renders the shader as a single still frame.
 
 ## Verified from copycentervernon.com (checked 2026-10-15)
 

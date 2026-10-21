@@ -1,4 +1,4 @@
-/* bg.js — live generated "ink in water" background (WebGL, no libraries).
+/* bg.js — live pink swooshes on the white page, plus WebGL "ink in water" panels (no libraries).
    One fixed full-screen canvas plus optional palette variants for feature panels.
    Half resolution, DPR capped at 1.5, pauses when hidden/off screen, single still frame for reduced motion. */
 (function () {
@@ -41,7 +41,7 @@
     /* vignette, dim, soft ceiling so text contrast holds at the brightest point */
     "  col *= 1.0 - 0.6 * pow(length(uv - 0.5) * 1.3, 2.0);",
     "  col *= uDim;",
-    "  col = 0.46 * (1.0 - exp(-col / 0.46));",
+    "  col = min(col, vec3(1.0));",
     /* animated film grain */
     "  col += (hash(gl_FragCoord.xy + fract(uTime * 0.37) * 311.0) - 0.5) * 0.03;",
     "  gl_FragColor = vec4(max(col, 0.0), 1.0);",
@@ -51,9 +51,8 @@
   function hex(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; }
 
   var PALETTES = {
-    page:  { base: "#040a1f", mid: "#1450c8", acc: "#e8178a", acc2: "#3d7dff", flare: 1.2 },
-    stage: { base: "#030817", mid: "#0a2c74", acc: "#f0168c", acc2: "#f0168c", flare: 0.7 },
-    cta:   { base: "#030816", mid: "#123382", acc: "#ff3fa4", acc2: "#4d8dff", flare: 0.9 }
+    stage: { base: "#0b47b0", mid: "#2f72ea", acc: "#f0168c", acc2: "#f0168c", flare: 0.7 },
+    cta:   { base: "#0b47b0", mid: "#2f72ea", acc: "#ff3fa4", acc2: "#f0168c", flare: 0.9 }
   };
 
   var mouse = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -119,12 +118,39 @@
     if (!this.shown) { this.shown = true; this.canvas.classList.add("is-ready"); }
   };
 
-  /* brightest behind the hero, dimmed to ~55% once you're into content */
-  function dimFor(s) {
-    var heroH = window.innerHeight;
-    var y = window.scrollY || 0;
-    var k = Math.min(1, y / (heroH * 0.9));
-    return 1.0 - 0.3 * k;
+  function dimFor() { return 1.0; }
+
+  /* two pink swooshes across the white page, like the curves on the business card.
+     Each is a cubic bezier whose control points breathe slowly and drift with scroll. */
+  function swoosh() {
+    var svg = document.getElementById("swoosh");
+    if (!svg) return;
+    var a = svg.querySelector(".swoosh__a"), b = svg.querySelector(".swoosh__b");
+    var W = 0, H = 0;
+    function size() { W = window.innerWidth; H = window.innerHeight; svg.setAttribute("viewBox", "0 0 " + W + " " + H); }
+    function curve(t, y0, y1, c1, c2, amp, ph, sh) {
+      var wob = function (f, p) { return Math.sin(t * f + ph + p) * amp; };
+      return "M" + (-0.06 * W) + " " + (H * y0 + sh) +
+        " C" + (W * 0.3) + " " + (H * c1 + wob(0.33, 0) + sh) + " " + (W * 0.66) + " " + (H * c2 + wob(0.27, 2.1) + sh) +
+        " " + (W * 1.06) + " " + (H * y1 + wob(0.21, 4.2) * 0.5 + sh);
+    }
+    var t0 = performance.now();
+    function render() {
+      var t = reduce ? 3 : (performance.now() - t0) / 1000;
+      var y = window.scrollY || 0, sh = -Math.min(y, H) * 0.12;
+      /* full strength over the hero, quieter behind reading content */
+      svg.style.opacity = (1 - 0.55 * Math.min(1, y / (H * 0.8))).toFixed(3);
+      var amp = Math.min(H, W) * 0.035;
+      var mobile = W < 768;
+      /* A: thick, rises from lower left of the header area to the top right */
+      a.setAttribute("d", curve(t, mobile ? 0.30 : 0.38, 0.0, mobile ? 0.36 : 0.30, 0.02, amp * (mobile ? 1 : 0.6), 0, sh));
+      /* B: thin, sweeps low across the bottom of the screen, opposite curvature */
+      b.setAttribute("d", curve(t * 0.85, 0.80, mobile ? 0.97 : 0.90, 1.02, 0.70, amp * 1.2, 1.3, sh * 0.6));
+    }
+    size(); render();
+    window.addEventListener("resize", function () { size(); render(); });
+    if (reduce) { window.addEventListener("scroll", render, { passive: true }); return; }
+    (function loop() { if (!document.hidden) render(); requestAnimationFrame(loop); })();
   }
 
   var shaders = [];
@@ -146,11 +172,7 @@
   }
 
   function boot() {
-    var main = document.getElementById("bg");
-    if (main) {
-      var s = new Shader(main, "page");
-      if (s.ok) shaders.push(s);
-    }
+    swoosh();
     var panels = document.querySelectorAll("canvas[data-shader]");
     Array.prototype.forEach.call(panels, function (c, i) {
       var name = c.getAttribute("data-shader");
@@ -165,7 +187,7 @@
       } else { s.visible = true; }
     });
 
-    if (!shaders.length) return; // CSS gradient fallback stays visible
+    if (!shaders.length) return; // panels keep their CSS gradient
 
     window.addEventListener("resize", function () {
       shaders.forEach(function (s) { s.resize(); });
@@ -174,7 +196,6 @@
     window.addEventListener("scroll", function () {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       scroll = max > 0 ? (window.scrollY || 0) / max : 0;
-      if (reduce && shaders[0]) shaders[0].draw(12);
     }, { passive: true });
     if (window.matchMedia("(pointer: fine)").matches) {
       window.addEventListener("pointermove", function (e) {
