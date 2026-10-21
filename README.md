@@ -32,7 +32,7 @@ Two pink swoosh lines (SVG beziers) draw in on load, breathe slowly, drift with 
 - Document shredding
 - Directions: from Church Street turn left onto Vernon Crossing Road; on the left across from the BUMP sign, before the railroad tracks
 
-The existing site showed no logo, photos, reviews or extra towns, so none are used.
+The existing site showed no logo, photos, reviews or extra towns. Real work photos supplied by the client (award plaque, wedding sign, fabric backdrop, pin badges) are in `assets/work/` and shown in the "Recent work" section.
 
 ## Placeholders and things to confirm before launch
 
