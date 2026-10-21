@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Vernon Copy Center</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Vernon Copy Center at 70 Vernon Crossing Road, Vernon, NJ: printing, copying, graphic design, notary and business services. Call 973-764-5655 or request a quote.">
+<meta name="theme-color" content="#120c08">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,200..800;1,62..125,300&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "The Vernon Copy Center",
+  "address": {"@type": "PostalAddress", "streetAddress": "70 Vernon Crossing Road", "addressLocality": "Vernon", "addressRegion": "NJ", "postalCode": "07422", "addressCountry": "US"},
+  "telephone": "+1-973-764-5655",
+  "faxNumber": "+1-973-764-5656",
+  "email": "copycenter@warwick.net",
+  "url": "https://copycentervernon.com/",
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "10:00", "closes": "18:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}
+  ]
+}
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="emblem" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <circle cx="32" cy="32" r="21"/><circle cx="32" cy="32" r="9.5"/>
+        <path d="M32 4v13M32 47v13M4 32h13M47 32h13"/>
+        <path d="M8 2v6H2M56 2v6h6M8 62v-6H2M56 62v-6h6"/>
+      </g>
+      <circle cx="32" cy="32" r="2.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.6 4.2-2.2 1.4a11 11 0 0 0 6.5 6.5l1.4-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6.5 8 6 8-6"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21Z" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 48 48"><path d="M8 34c0-9 4-16 12-20l2 3c-4 3-6 6-6 10h5v11H8Zm20 0c0-9 4-16 12-20l2 3c-4 3-6 6-6 10h5v11H28Z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<canvas id="bg" class="bg-canvas" aria-hidden="true"></canvas>
+<div class="bg-fallback" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<div class="demo-bar" role="note">
+  <span class="demo-bar__dot" aria-hidden="true"></span>
+  <span><strong>Demo preview.</strong> Anything tagged <span class="tag tag--sample">Sample</span> is a placeholder to confirm before launch.</span>
+</div>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#hero" aria-label="The Vernon Copy Center, back to top">
+      <svg class="brand__mark" aria-hidden="true"><use href="#emblem"/></svg>
+      <span class="brand__text"><span class="brand__small">The Vernon</span><span class="brand__big">Copy Center</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul id="nav-list" class="nav__list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav__mobile-cta"><a class="btn btn--primary" href="#contact"><span class="btn__label">Request a Quote</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+        <li class="nav__mobile-cta"><a class="btn btn--ghost" href="tel:+19737645655"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call 973-764-5655</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn header-call" href="tel:+19737645655" aria-label="Call 973-764-5655"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="header-call__num">973-764-5655</span></a>
+      <a class="btn btn--primary btn--sm header-quote magnetic" href="#contact"><span class="btn__label">Request a Quote</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero__stage" aria-hidden="true">
+      <span class="crop crop--tl"></span><span class="crop crop--tr"></span><span class="crop crop--bl"></span><span class="crop crop--br"></span>
+    </div>
+
+    <div class="hero__content wrap">
+      <svg class="hero__emblem" viewBox="0 0 64 64" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+          <circle class="draw" pathLength="1" cx="32" cy="32" r="21"/>
+          <circle class="draw" pathLength="1" cx="32" cy="32" r="9.5"/>
+          <path class="draw" pathLength="1" d="M32 4v13M32 47v13M4 32h13M47 32h13"/>
+          <path class="draw" pathLength="1" d="M8 2v6H2M56 2v6h6M8 62v-6H2M56 62v-6h6"/>
+        </g>
+        <circle class="draw-dot" cx="32" cy="32" r="2.2" fill="currentColor"/>
+      </svg>
+      <p class="eyebrow hero__eyebrow">Printing &middot; Copying &middot; Design &middot; Business services</p>
+      <h1 class="hero__title split" id="hero-title" aria-label="Print it right, right here in Vernon.">Print it <em class="shimmer">right,</em><br> right here in <em class="shimmer">Vernon.</em></h1>
+      <p class="hero__lede">Copies, printing, graphic design, notary and shredding at one counter on Vernon Crossing Road. Tell us what you're working on and we'll help you get it out the door.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary magnetic" href="#contact"><span class="btn__label">Request a Quote</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+        <a class="btn btn--ghost magnetic" href="tel:+19737645655"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call 973-764-5655</a>
+      </div>
+    </div>
+
+    <div class="hero__corner hero__corner--bl wrap-pad"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>70 Vernon Crossing Rd &middot; Vernon, NJ 07422</div>
+    <a class="hero__corner hero__corner--br wrap-pad link-wipe" href="#services">See what we print<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="scroll-cue" href="#intro" aria-label="Scroll to introduction"><span></span></a>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro section" id="intro" aria-labelledby="intro-title">
+    <div class="wrap">
+      <p class="label reveal">The counter on Vernon Crossing</p>
+      <h2 class="statement split" id="intro-title" aria-label="One local stop for the copies, print jobs, paperwork and design projects that keep Vernon moving.">One local stop for the <em class="shimmer">copies, print jobs,</em> paperwork and <em class="shimmer">design projects</em> that keep Vernon moving.</h2>
+      <ul class="pills reveal-group" aria-label="What we do">
+        <li class="pill">Printing</li>
+        <li class="pill">Copying</li>
+        <li class="pill">Graphic design</li>
+        <li class="pill">Business services</li>
+        <li class="pill">Notary &middot; walk-in</li>
+        <li class="pill">Document shredding</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Printing</span><i></i><span class="solid">Copying</span><i></i><span>Graphic Design</span><i></i><span class="solid">Notary</span><i></i><span>Shredding</span><i></i><span class="solid">Business Services</span><i></i>
+      <span>Printing</span><i></i><span class="solid">Copying</span><i></i><span>Graphic Design</span><i></i><span class="solid">Notary</span><i></i><span>Shredding</span><i></i><span class="solid">Business Services</span><i></i>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services" aria-labelledby="services-title">
+    <div class="wrap services__grid">
+      <div class="services__intro">
+        <p class="label reveal">Services</p>
+        <h2 class="h2 split" id="services-title" aria-label="What we can do for you.">What we can <em class="shimmer">do</em> for you.</h2>
+        <p class="muted reveal">Every job is a little different, so the fastest route to an exact price is a short conversation. Send the details or call the counter and we'll walk you through it.</p>
+        <div class="services__meta reveal">
+          <span class="spec">Ref. VCC / Services</span>
+          <span class="spec">Six departments</span>
+        </div>
+      </div>
+
+      <ol class="svc-list">
+        <li class="svc">
+          <a class="svc__link" href="#contact" data-service="Printing">
+            <span class="svc__num">01</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="paper"><rect x="34" y="20" width="44" height="58" rx="1"/><rect x="40" y="14" width="44" height="58" rx="1"/></g><g class="ln"><path d="M48 26h20M48 32h28M48 38h24M48 44h28"/><rect x="48" y="50" width="28" height="14"/></g><g class="crop-s"><path d="M34 8v4M30 12h4M90 8v4M90 12h4M34 82v-4M30 78h4M90 82v-4M90 78h4"/></g><circle class="dot c" cx="100" cy="30" r="3.5"/><circle class="dot m" cx="100" cy="40" r="3.5"/><circle class="dot y" cx="100" cy="50" r="3.5"/><circle class="dot k" cx="100" cy="60" r="3.5"/></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Printing</span>
+              <span class="svc__desc">Bring a file or a finished original and talk through paper, size and quantity with us. We'll tell you what works best for the job.</span>
+            </span>
+            <span class="svc__go">Request a quote<svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        <li class="svc">
+          <a class="svc__link" href="#contact" data-service="Copying">
+            <span class="svc__num">02</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="paper"><rect x="18" y="16" width="38" height="52" rx="1"/><rect x="66" y="22" width="38" height="52" rx="1"/></g><g class="ln"><path d="M25 26h22M25 32h24M25 38h18M25 44h24M73 32h22M73 38h24M73 44h18M73 50h24"/></g><path class="acc" d="M50 76c8 6 20 6 28 0M74 72l4 4-5 3"/></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Copying</span>
+              <span class="svc__desc">From a single page to a stack of handouts, drop off your originals and pick up clean, collated copies.</span>
+            </span>
+            <span class="svc__go">Request a quote<svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        <li class="svc svc--feature">
+          <a class="svc__link" href="#contact" data-service="Graphic design">
+            <span class="svc__num">03</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="grid-s"><path d="M20 15v62M40 15v62M60 15v62M80 15v62M100 15v62M14 25h92M14 46h92M14 67h92"/></g><path class="acc" d="M22 66C38 18 74 82 98 24"/><g class="handle"><path d="M22 66 30 44M98 24 84 20"/><rect x="19" y="63" width="6" height="6"/><rect x="95" y="21" width="6" height="6"/><circle cx="30" cy="44" r="2.5"/><circle cx="84" cy="20" r="2.5"/></g></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Graphic design</span>
+              <span class="svc__desc">Need it designed before it's printed? Share your idea, your text and any logo you have, and we'll help shape it into a print-ready piece.</span>
+            </span>
+            <span class="svc__go">Start a design request<svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        <li class="svc svc--stamp">
+          <div class="svc__link svc__link--static">
+            <span class="svc__num">04</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="paper"><rect x="16" y="14" width="56" height="66" rx="1"/></g><g class="ln"><path d="M24 24h34M24 30h40M24 36h30M24 66h28"/></g><path class="sig" d="M26 62c4-8 8 2 12-4s6 4 10-2 4 3 8 0"/><g class="acc"><circle cx="82" cy="50" r="20"/><circle cx="82" cy="50" r="14" stroke-dasharray="2 3"/><path d="M76 50l4 4 8-9"/></g></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Notary</span>
+              <span class="svc__desc">Walk in during business hours. Please don't sign your document until you're in front of the notary, and bring any witnesses you need (they must be over 18).</span>
+              <span class="stamp" aria-label="Notary details from the current website">
+                <span class="stamp__big">$5</span>
+                <span class="stamp__small">per signature<br>no appointment</span>
+              </span>
+            </span>
+            <a class="svc__go" href="tel:+19737645655">Call ahead<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        <li class="svc">
+          <a class="svc__link" href="#contact" data-service="Document shredding">
+            <span class="svc__num">05</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="paper"><path d="M36 8h48v30H36z"/></g><g class="ln"><path d="M42 16h30M42 22h36M42 28h26"/></g><rect class="acc" x="26" y="38" width="68" height="10" rx="2"/><g class="strip"><path d="M38 52v22M45 52v28M52 52v18M59 52v26M66 52v20M73 52v28M80 52v16"/></g></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Document shredding</span>
+              <span class="svc__desc">Clearing out old files? Ask us about shredding the paperwork you no longer need to keep.</span>
+            </span>
+            <span class="svc__go">Ask about shredding<svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        <li class="svc">
+          <a class="svc__link" href="#contact" data-service="Business services">
+            <span class="svc__num">06</span>
+            <span class="svc__art" aria-hidden="true"><svg viewBox="0 0 120 90" class="art"><g class="paper"><path d="M22 28h30l6-8h40v58H22z"/></g><g class="paper paper-2"><rect x="32" y="12" width="40" height="36" rx="1" transform="rotate(-6 52 30)"/></g><g class="ln"><path d="M38 22h22M38 28h26M38 34h18" transform="rotate(-6 52 30)"/></g><path class="acc" d="M22 40h76"/><circle class="acc" cx="60" cy="58" r="5"/></svg></span>
+            <span class="svc__body">
+              <span class="svc__name">Business services</span>
+              <span class="svc__desc">The everyday paperwork that keeps a business, club or household running. Tell us what you need and we'll let you know how we can help.</span>
+            </span>
+            <span class="svc__go">Tell us what you need<svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SHOWCASE / ABOUT -->
+  <section class="about section" id="about" aria-labelledby="about-title">
+    <div class="wrap about__grid">
+      <div class="stage reveal" data-tilt>
+        <canvas class="stage__canvas" data-shader="stage" aria-hidden="true"></canvas>
+        <div class="stage__grid" aria-hidden="true"></div>
+        <div class="mock mock--flyer tilt-layer" data-depth="18" aria-hidden="true">
+          <span class="mock__kicker">Community notice</span>
+          <span class="mock__title">Spring<br>Craft Fair</span>
+          <span class="mock__rule"></span>
+          <span class="mock__lines"><i></i><i></i><i></i></span>
+          <span class="mock__swatch"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="mock mock--card tilt-layer" data-depth="34" aria-hidden="true">
+          <svg aria-hidden="true"><use href="#emblem"/></svg>
+          <span class="mock__name">Your Business</span>
+          <span class="mock__sub">Owner &middot; Vernon, NJ</span>
+        </div>
+        <div class="mock mock--card mock--card-back tilt-layer" data-depth="26" aria-hidden="true">
+          <span class="mock__lines"><i></i><i></i></span>
+        </div>
+        <div class="mock mock--env tilt-layer" data-depth="10" aria-hidden="true">
+          <span class="mock__lines"><i></i><i></i><i></i></span>
+        </div>
+        <p class="stage__note"><span class="tag tag--sample">Sample</span> Illustrative mockups, not actual client work</p>
+        <span class="reg reg--a" aria-hidden="true"></span><span class="reg reg--b" aria-hidden="true"></span>
+      </div>
+
+      <div class="about__copy">
+        <p class="label reveal">About the shop</p>
+        <h2 class="h2 split" id="about-title" aria-label="A real counter, real people, right in town.">A real counter, <em class="shimmer">real people,</em> right in town.</h2>
+        <p class="reveal">The Vernon Copy Center sits on Vernon Crossing Road, where neighbors, small businesses and local organizations come to get things printed, copied, designed and signed.</p>
+        <p class="reveal muted">You talk to the person handling your job. Bring in your project, call with a question, or send the details ahead so we're ready when you arrive.</p>
+        <dl class="facts reveal-group">
+          <div class="fact"><dt>Where</dt><dd>70 Vernon Crossing Road, Vernon, NJ 07422</dd></div>
+          <div class="fact"><dt>Phone</dt><dd><a href="tel:+19737645655">973-764-5655</a></dd></div>
+          <div class="fact"><dt>Fax</dt><dd>973-764-5656</dd></div>
+          <div class="fact"><dt>Notary</dt><dd>No appointment needed</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why section" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="why__head">
+        <p class="label reveal">Why stop here</p>
+        <h2 class="h2 split" id="why-title" aria-label="Simple reasons, all of them true.">Simple reasons, <em class="shimmer">all of them true.</em></h2>
+      </div>
+      <div class="why__sheet reveal">
+        <div class="why__cell">
+          <span class="why__k">Local</span>
+          <h3>Right in Vernon</h3>
+          <p>On Vernon Crossing Road, just before the railroad tracks. No shipping your project off and waiting on a box.</p>
+        </div>
+        <div class="why__cell">
+          <span class="why__k">Direct</span>
+          <h3>A person picks up</h3>
+          <p>Call <a href="tel:+19737645655">973-764-5655</a> or email <a href="mailto:copycenter@warwick.net">copycenter@warwick.net</a> and talk to the people doing the work.</p>
+        </div>
+        <div class="why__cell">
+          <span class="why__k">Complete</span>
+          <h3>Design to print in one place</h3>
+          <p>Design, printing, copying and business services under one roof, so one visit can cover the whole job.</p>
+        </div>
+        <div class="why__cell">
+          <span class="why__k">Walk-in</span>
+          <h3>Notary without an appointment</h3>
+          <p>Come in during business hours with your unsigned document and any witnesses you need.</p>
+        </div>
+        <span class="crop crop--tl"></span><span class="crop crop--tr"></span><span class="crop crop--bl"></span><span class="crop crop--br"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process section" aria-labelledby="process-title">
+    <div class="wrap">
+      <p class="label reveal">How it works</p>
+      <h2 class="h2 split" id="process-title" aria-label="Three steps from idea to paper.">Three steps from <em class="shimmer">idea to paper.</em></h2>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n">1</span>
+          <div class="step__body"><h3>Tell us about it</h3><p>Send the quote form, call, or email with what you need: the service, rough quantity and any date you're working toward.</p></div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">2</span>
+          <div class="step__body"><h3>Settle the details</h3><p>We follow up to confirm sizes, paper, design needs and price before anything goes to print.</p></div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">3</span>
+          <div class="step__body"><h3>Pick it up in Vernon</h3><p>Stop by 70 Vernon Crossing Road during business hours to collect your finished job.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="reviews section" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="reviews__head">
+        <p class="label reveal">Kind words</p>
+        <h2 class="h2 split" id="reviews-title" aria-label="What customers say.">What customers <em class="shimmer">say.</em></h2>
+        <p class="muted reveal">These three are placeholders that show the layout. Swap in real Google reviews, with permission, before launch.</p>
+      </div>
+      <div class="reviews__grid reveal-group">
+        <figure class="review glass">
+          <svg class="review__q" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote><p>Sample review. A short, real quote from a customer about a print or copy job goes here.</p></blockquote>
+          <figcaption><span>Customer name</span><span class="tag tag--sample">Sample review, replace before launch</span></figcaption>
+        </figure>
+        <figure class="review glass review--offset">
+          <svg class="review__q" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote><p>Sample review. A real quote about the design help or the notary service would fit nicely here.</p></blockquote>
+          <figcaption><span>Customer name</span><span class="tag tag--sample">Sample review, replace before launch</span></figcaption>
+        </figure>
+        <figure class="review glass">
+          <svg class="review__q" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote><p>Sample review. A local business or organization describing working with the shop would round this out.</p></blockquote>
+          <figcaption><span>Customer name</span><span class="tag tag--sample">Sample review, replace before launch</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PANEL -->
+  <section class="cta-band section" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta-panel glass glow-border reveal">
+        <canvas class="cta-panel__canvas" data-shader="cta" aria-hidden="true"></canvas>
+        <svg class="cta-panel__emblem" aria-hidden="true"><use href="#emblem"/></svg>
+        <div class="cta-panel__copy">
+          <p class="label">Ready when you are</p>
+          <h2 class="h2" id="cta-title">Got a project <em class="shimmer">on your desk?</em></h2>
+          <p class="muted">Send the details for a quote, or call the counter and ask.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary magnetic" href="#contact"><span class="btn__label">Request a Quote</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            <a class="btn btn--ghost magnetic" href="tel:+19737645655"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call 973-764-5655</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact__grid">
+      <div class="contact__info">
+        <p class="label reveal">Request a quote</p>
+        <h2 class="h2 split" id="contact-title" aria-label="Tell us what you're working on.">Tell us what you're <em class="shimmer">working on.</em></h2>
+        <p class="muted reveal">Share a few details and we'll follow up with questions and a price. Prefer to talk? Call or email the shop directly.</p>
+        <ul class="contact__lines reveal-group">
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+            <div><span class="k">Call</span><a class="v" href="tel:+19737645655">973-764-5655</a></div>
+            <button class="copy-btn" type="button" data-copy="973-764-5655" aria-label="Copy phone number"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+          </li>
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+            <div><span class="k">Email</span><a class="v" href="mailto:copycenter@warwick.net">copycenter@warwick.net</a></div>
+            <button class="copy-btn" type="button" data-copy="copycenter@warwick.net" aria-label="Copy email address"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+          </li>
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
+            <div><span class="k">Visit</span><span class="v">70 Vernon Crossing Road<br>Vernon, NJ 07422</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card glass reveal">
+        <div class="form-card__notice" role="note">
+          <span class="tag tag--sample">Demo</span>
+          <p>This form isn't connected yet, so nothing is sent. It checks your entries and prepares a message you can copy into an email or read over the phone.</p>
+        </div>
+        <div class="error-summary" id="error-summary" tabindex="-1" hidden>
+          <p><strong>Please fix the following:</strong></p>
+          <ul></ul>
+        </div>
+        <form id="quote-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+              <p class="field__err" id="f-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__err" id="f-email-err"></p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone <span class="opt">optional</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+              <p class="field__err" id="f-phone-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-service">Service</label>
+              <div class="select-wrap">
+                <select id="f-service" name="service" required>
+                  <option value="">Choose one</option>
+                  <option>Printing</option>
+                  <option>Copying</option>
+                  <option>Graphic design</option>
+                  <option>Business services</option>
+                  <option>Notary</option>
+                  <option>Document shredding</option>
+                  <option>Other / Not sure yet</option>
+                </select>
+              </div>
+              <p class="field__err" id="f-service-err"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-details">Project details</label>
+            <textarea id="f-details" name="details" rows="5" required placeholder="What is it, roughly how many, any size or paper you have in mind"></textarea>
+            <p class="field__err" id="f-details-err"></p>
+          </div>
+          <div class="field field--half">
+            <label for="f-deadline">Needed by <span class="opt">optional</span></label>
+            <input id="f-deadline" name="deadline" type="date">
+            <p class="field__err" id="f-deadline-err"></p>
+          </div>
+          <button class="btn btn--primary btn--submit" type="submit"><span class="btn__label">Prepare my request</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="spinner" aria-hidden="true"></span></button>
+          <p class="form-fallback">Or reach us directly at <a href="tel:+19737645655">973-764-5655</a> or <a href="mailto:copycenter@warwick.net">copycenter@warwick.net</a>.</p>
+        </form>
+
+        <div class="form-done" id="form-done" tabindex="-1" hidden>
+          <span class="form-done__icon"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h3>Your request is ready to send</h3>
+          <p>The form isn't connected in this demo, so nothing has been sent. Copy the message below and email it to <strong>copycenter@warwick.net</strong>, or call <strong>973-764-5655</strong>.</p>
+          <pre class="form-done__msg" id="form-msg"></pre>
+          <div class="form-done__actions">
+            <button class="btn btn--ghost" type="button" id="copy-msg"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy message</span></button>
+            <a class="btn btn--ghost" id="mail-msg" href="mailto:copycenter@warwick.net"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Open in email</a>
+            <button class="text-btn" type="button" id="form-reset">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit section" id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit__grid">
+      <div class="visit__copy">
+        <p class="label reveal">Visit</p>
+        <h2 class="h2 split" id="visit-title" aria-label="Find the shop.">Find the <em class="shimmer">shop.</em></h2>
+        <address class="visit__addr reveal">70 Vernon Crossing Road<br>Vernon, NJ 07422</address>
+        <p class="reveal">From Church Street, turn left onto Vernon Crossing Road. We're on the left, across from the BUMP sign and before the railroad tracks. Not sure you've found it? Call and we'll guide you in.</p>
+        <a class="btn btn--ghost reveal" href="https://www.google.com/maps/dir/?api=1&amp;destination=70+Vernon+Crossing+Road+Vernon+NJ+07422" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+      </div>
+      <div class="hours glass reveal">
+        <div class="hours__head"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><h3>Hours</h3><span class="hours__today" id="hours-today"></span></div>
+        <table class="hours__table">
+          <caption class="sr-only">Business hours</caption>
+          <tbody>
+            <tr data-day="1"><th scope="row">Monday</th><td>9:00 am &ndash; 5:00 pm</td></tr>
+            <tr data-day="2"><th scope="row">Tuesday</th><td>10:00 am &ndash; 6:00 pm</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>9:00 am &ndash; 5:00 pm</td></tr>
+            <tr data-day="4"><th scope="row">Thursday</th><td>9:00 am &ndash; 5:00 pm</td></tr>
+            <tr data-day="5"><th scope="row">Friday</th><td>9:00 am &ndash; 5:00 pm</td></tr>
+            <tr data-day="6"><th scope="row">Saturday</th><td class="faint">Not listed</td></tr>
+            <tr data-day="0"><th scope="row">Sunday</th><td class="faint">Not listed</td></tr>
+          </tbody>
+        </table>
+        <p class="hours__note">Hours as posted on copycentervernon.com. Please confirm before launch, and call ahead on holidays.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="lockup"><svg class="footer__emblem" aria-hidden="true"><use href="#emblem"/></svg><span class="lockup__text"><span class="brand__small">The Vernon</span><span class="brand__big">Copy Center</span><span class="lockup__tag">Print &middot; Copy &middot; Design</span></span></div>
+        <p>Printing, copying, graphic design and business services on Vernon Crossing Road in Vernon, New Jersey.</p>
+        <a class="btn btn--primary btn--sm magnetic" href="#contact"><span class="btn__label">Request a Quote</span><span class="btn__arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <nav class="footer__col" aria-label="Footer">
+        <h3 class="footer__h">Explore</h3>
+        <ul><li><a href="#hero">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#visit">Visit</a></li><li><a href="#contact">Contact</a></li></ul>
+      </nav>
+      <div class="footer__col">
+        <h3 class="footer__h">Services</h3>
+        <ul><li>Printing</li><li>Copying</li><li>Graphic design</li><li>Notary</li><li>Document shredding</li><li>Business services</li></ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__h">Contact</h3>
+        <ul>
+          <li><a href="tel:+19737645655">973-764-5655</a></li>
+          <li>Fax 973-764-5656</li>
+          <li><a href="mailto:copycenter@warwick.net">copycenter@warwick.net</a></li>
+          <li>70 Vernon Crossing Road<br>Vernon, NJ 07422</li>
+          <li><a href="https://copycentervernon.com/" target="_blank" rel="noopener">copycentervernon.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> The Vernon Copy Center</span>
+      <span>Demo preview. Emblem shown is a proposed concept, not an official logo.</span>
+      <a href="#hero" class="link-wipe">Back to top</a>
+    </div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Vernon Copy Center</div>
+</footer>
+
+<script src="bg.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
