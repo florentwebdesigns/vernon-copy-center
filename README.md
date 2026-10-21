@@ -50,7 +50,7 @@ The existing site showed no logo, photos, reviews or extra towns, so none are us
 
 The form validates (on blur and on submit, with an error summary), then shows a success panel with a copy of the message, an "Open in email" link and the phone number. A hidden honeypot field (`website`) catches bots.
 
-Booking log: `docs/booking-log.gs` is a Google Apps Script. Bound to a Google Sheet, it saves every request to a "Requests" tab (status dropdown, deadline highlighting) and builds a "Dashboard" tab (totals, by service, by month, by weekday, job status, upcoming deadlines, latest requests, charts). Setup steps are at the top of the file. The web app URL is set in `QUOTE_LOG` at the top of `script.js` (connected 2026-10-21); emptying it puts the form back in demo mode. Optional email alerts: set `NOTIFY_EMAIL` in the script.
+Call and booking analytics: `docs/booking-log.gs` is a Google Apps Script (same format as the Stu Plumbing sheet). Every tap on a phone number logs a row to a "Calls" tab (time, device, page), and every quote request logs a row to a "Bookings" tab (time, name, email, phone, service, needed by, details, device, page). The web app URL is set in `QUOTE_LOG` at the top of `script.js`; emptying it turns logging off and puts the form back in demo mode.
 
 ## What works
 

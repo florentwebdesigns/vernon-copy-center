@@ -8,8 +8,8 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* Google Sheets booking log (docs/booking-log.gs). Paste the Apps Script web app URL here;
-     leave it empty and the form stays in demo mode (prepares a message, sends nothing). */
+  /* Google Sheets call + booking analytics (docs/booking-log.gs). Phone taps go to the Calls tab,
+     quote requests to the Bookings tab. Empty = nothing is logged and the form stays in demo mode. */
   var QUOTE_LOG = "https://script.google.com/macros/s/AKfycbyEXQfUXiQQXQ4BP1rCP4rMtA2OzbunaOkosfqRA-XrKKXTPz6hyXNjsTJAiPZ2PGz4/exec";
 
   /* ---------- word-by-word headline split (aria-label keeps the full text) ---------- */
@@ -205,6 +205,23 @@
     a.addEventListener("click", function () { if (serviceSelect) serviceSelect.value = a.getAttribute("data-service"); });
   });
 
+  function device() {
+    var ua = navigator.userAgent;
+    if (/iPad|Tablet/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) || (/Android/i.test(ua) && !/Mobile/i.test(ua))) return "Tablet";
+    return /Mobi|iPhone|Android/i.test(ua) ? "Phone" : "Computer";
+  }
+  function logEvent(data) {
+    if (!QUOTE_LOG) return;
+    data.device = device(); data.page = location.href;
+    try { fetch(QUOTE_LOG, { method: "POST", mode: "no-cors", keepalive: true, body: new URLSearchParams(data) }).catch(function () {}); } catch (err) {}
+  }
+
+  /* ---------- log every tap on a phone number (Calls tab) ---------- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) logEvent({ type: "call" });
+  });
+
   /* ---------- quote form: validates, logs to the booking sheet when QUOTE_LOG is set ---------- */
   var form = $("#quote-form");
   if (form) {
@@ -263,15 +280,11 @@
       var btn = form.querySelector(".btn--submit");
       btn.classList.add("is-loading");
       btn.querySelector(".btn__label").textContent = QUOTE_LOG ? "Sending…" : "Preparing…";
-      if (QUOTE_LOG) {
-        try {
-          fetch(QUOTE_LOG, { method: "POST", mode: "no-cors", keepalive: true, body: new URLSearchParams({
-            name: fields.name.el.value.trim(), email: fields.email.el.value.trim(), phone: fields.phone.el.value.trim(),
-            service: fields.service.el.value, deadline: fields.deadline.el.value, details: fields.details.el.value.trim(),
-            website: (form.elements.website && form.elements.website.value) || "", page: location.href
-          }) }).catch(function () {});
-        } catch (err) { /* the copy and email fallback below still works */ }
-      }
+      logEvent({
+        type: "booking", name: fields.name.el.value.trim(), email: fields.email.el.value.trim(), phone: fields.phone.el.value.trim(),
+        service: fields.service.el.value, deadline: fields.deadline.el.value, details: fields.details.el.value.trim(),
+        website: (form.elements.website && form.elements.website.value) || ""
+      });
       setTimeout(function () {
         var v = function (k) { return fields[k].el.value.trim(); };
         var lines = [
