@@ -10,6 +10,8 @@
 
   /* Google Sheets call + booking analytics (docs/booking-log.gs). Phone taps go to the Calls tab,
      quote requests to the Bookings tab. Empty = nothing is logged and the form stays in demo mode. */
+  /* Katie's cell: quote requests open the customer's Messages app pre-filled to this number. */
+  var SMS_TO = "+19739036734";
   var QUOTE_LOG = "https://script.google.com/macros/s/AKfycby82RgCnOMfsX2LL82Hf6eeH4G0S6q7ONM7lmeG9J1OarbiKyJNU0fvALhjSsY-GsJD/exec";
 
   /* ---------- word-by-word headline split (aria-label keeps the full text) ---------- */
@@ -302,9 +304,12 @@
         var text = lines.join("\n");
         msgEl.textContent = text;
         $("#mail-msg").href = "mailto:copycenter@warwick.net?subject=" + encodeURIComponent("Quote request: " + v("service")) + "&body=" + encodeURIComponent(text);
+        var sms = "sms:" + SMS_TO + "?&body=" + encodeURIComponent(text);
+        $("#sms-msg").href = sms;
         form.hidden = true;
         done.hidden = false;
         done.focus();
+        if (device() !== "Computer") location.href = sms;   // phones and tablets: open Messages, ready to send
         btn.classList.remove("is-loading");
         btn.querySelector(".btn__label").textContent = QUOTE_LOG ? "Send my request" : "Prepare my request";
       }, reduce ? 0 : 700);
