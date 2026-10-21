@@ -3,8 +3,10 @@
  *
  * Same idea as the Stu Plumbing sheet. The website logs:
  *   Calls tab:    every time someone taps a phone number (time, device, page)
+ *   Email tab:    every time someone taps the email address (time, device, page)
  *   Bookings tab: every quote request sent from the form (time, contact info, service, device, page)
- * Each booking is also emailed to NOTIFY_EMAIL; hitting Reply answers the customer directly.
+ * Each booking is also texted to Katie (see SMS settings below) and emailed to NOTIFY_EMAIL,
+ * where hitting Reply answers the customer directly.
  * The tabs are created automatically the first time something is logged.
  *
  * Setup: Extensions > Apps Script, replace everything in Code.gs with this file, save.
@@ -22,8 +24,10 @@ var NOTIFY_EMAIL = "copycenter@warwick.net";   // Katie gets an email for every 
  *     TWILIO_SID, TWILIO_TOKEN, TWILIO_FROM (+1...) and TWILIO_TO (+1 her cell). */
 var SMS_GATEWAY = "";
 var CALLS = "Calls";
+var EMAILS = "Email";
 var BOOKINGS = "Bookings";
 var CALL_HEADERS = ["Tapped Call", "Device", "Page"];
+var EMAIL_HEADERS = ["Tapped Email", "Device", "Page"];
 var BOOKING_HEADERS = ["Booked", "Name", "Email", "Phone", "Service", "Needed By", "Details", "Device", "Page"];
 
 function doPost(e) {
@@ -34,6 +38,8 @@ function doPost(e) {
   try {
     if (p.type === "call") {
       sheet_(CALLS, CALL_HEADERS).appendRow([new Date(), clean_(p.device), clean_(p.page)]);
+    } else if (p.type === "email") {
+      sheet_(EMAILS, EMAIL_HEADERS).appendRow([new Date(), clean_(p.device), clean_(p.page)]);
     } else if (p.type === "booking") {
       sheet_(BOOKINGS, BOOKING_HEADERS).appendRow([new Date(), clean_(p.name), clean_(p.email),
         clean_(p.phone), clean_(p.service), clean_(p.deadline), clean_(p.details),

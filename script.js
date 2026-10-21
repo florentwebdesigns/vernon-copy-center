@@ -216,10 +216,10 @@
     try { fetch(QUOTE_LOG, { method: "POST", mode: "no-cors", keepalive: true, body: new URLSearchParams(data) }).catch(function () {}); } catch (err) {}
   }
 
-  /* ---------- log every tap on a phone number (Calls tab) ---------- */
+  /* ---------- log taps on phone numbers (Calls tab) and the email address (Email tab) ---------- */
   document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) logEvent({ type: "call" });
+    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]:not(#mail-msg)');
+    if (a) logEvent({ type: a.getAttribute("href").indexOf("tel:") === 0 ? "call" : "email" });
   });
 
   /* ---------- quote form: validates, logs to the booking sheet when QUOTE_LOG is set ---------- */
